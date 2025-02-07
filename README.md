@@ -3,6 +3,8 @@
 -> GUI (Graphical User Interface)
 -> CLI (Command Line Interface) in Terminal
 
+GIT COMMANDS
+
 1. clone
     => git clone <git project url>
 
