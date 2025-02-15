@@ -42,14 +42,14 @@
 
 // Write a function to calculate Area of Circle
 
-function area (r){
-    const result = 22/7 * r*r;
-    return result;
-}
+// function area (r){
+//     const result = 22/7 * r*r;
+//     return result;
+// }
 
-const input1 = +prompt("Enter the Radius of the Circle")
-const answerArea = area(input1);
-alert(answerArea);
+// const input1 = +prompt("Enter the Radius of the Circle")
+// const answerArea = area(input1);
+// alert(answerArea);
 
 
 /*
@@ -65,3 +65,58 @@ alert(answerArea);
 10. Callback Function 
 
 */
+// Arrow Function
+// const sum = (num1, num2) =>{
+//     const result = num1 + num2;
+//     return result;
+// }
+
+// // Function Call
+// console.log(sum(2, 5));
+
+// const firstNumber= +prompt("Enter the first Number");
+// const secondNumber = +prompt("Enter the Second Number")
+
+
+// Default Function
+
+// const pagination = (page =1) => {
+//     return `page number ${page}`;
+// }
+
+// console.log(pagination(2));
+// console.log(pagination());
+
+
+// Write a function that says welcome person
+// If user name is provided else it says welcome user
+
+// const user = (person = "User") => {
+//     return `Welcome ${person}`
+// }
+
+// console.log(user("Sadip"));
+// console.log(user());
+
+// const data = prompt ("Enter your Name");
+// result = user(data);
+// alert(result);
+
+// Parameterized Function
+
+// Write a parameterized function to calculate the volume of cuboid: volume = l*b*h
+
+const volume = ({length, breadth, height}) => {
+    return length*breadth*height;
+};
+
+console.log(volume({length:2, breadth:5 , height:4}));
+
+
+//  IIFEs (Immediately Invoked Functional Expressions)
+
+// (() => {})();
+
+((a = "Test") =>{
+    console.log("IIFE", a);
+})("Sadip");
