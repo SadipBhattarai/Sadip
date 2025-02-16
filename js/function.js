@@ -63,6 +63,7 @@
 8.  Anonymous Function
 9.  Inline Function
 10. Callback Function 
+11. Pure Function
 
 */
 // Arrow Function
@@ -106,17 +107,156 @@
 
 // Write a parameterized function to calculate the volume of cuboid: volume = l*b*h
 
-const volume = ({length, breadth, height}) => {
-    return length*breadth*height;
-};
+// const volume = ({length, breadth, height}) => {
+//     return length*breadth*height;
+// };
 
-console.log(volume({length:2, breadth:5 , height:4}));
+// console.log(volume({length:2, breadth:5 , height:4}));
 
 
 //  IIFEs (Immediately Invoked Functional Expressions)
 
 // (() => {})();
 
-((a = "Test") =>{
-    console.log("IIFE", a);
-})("Sadip");
+// ((a = "Test") =>{
+//     console.log("IIFE", a);
+// })("Sadip");
+
+
+// Function can return Primitive Datatype / Complex Datatype / Fuction
+
+// Closure Function
+
+// let count =1;
+// const counter = () => {
+//     const increment = count + 1;
+//     return increment;
+// };
+// console.log(counter());
+
+
+const counter = () => {
+    let count = 1;
+    return () => {
+        const increment = count ++;
+        return increment;
+    }
+};
+
+const counterA = counter();
+const counterB = counter();
+const counterC = counter();
+const counterD = counter();
+
+console.log(counterA());    // dashain
+console.log(counterA());    // dashain
+console.log(counterA());    // dashain
+
+console.log(counterB());    // tihar
+console.log(counterB());    // tihar
+
+
+
+// Private Variables
+// Local Variables
+// Global Variables
+// Lexical Scoping
+
+// Closure Concept => lexical Scoping => local, Private Variable, Global Variable
+
+// Variables that can be accessed outise or even inside the function is called global variable.
+
+
+// Explicit Function
+//  const summer = () =>{
+//     return 0;
+//  }
+
+//  console.log({summer: summer()});
+
+ //
+
+//  const addition = (a, b) => {
+//     const sum = a +b;
+//     return sum;
+//  };
+
+
+ // Implicit Function
+
+//  const summer1 =() => 0;
+
+//  console.log(summer1());
+
+//  // 
+//  const additon1 = (a,b) => a + b;
+
+//  console.log (additon1(4, 5));
+
+
+ // Anonymous Funciton
+
+//  const test = function(){
+//     console.log("Test");
+//  };
+//  test();
+// Used in Logger Implementation => Warn User, Alert
+
+
+
+ // Inline Funciton
+
+//  const testInLine = function (){
+
+//  }
+
+
+// Callback Function
+// Callback Function is a fuction that accepts another function as an parameter.
+
+const print = (data) => {
+    console.log(`Hello ${data}`);
+};
+
+const main = (user = "user", callbackFn) => {
+    const information = `Mr ${user}`;
+    return callbackFn(information);
+};
+
+main("sadip", print);
+
+// Write a js funciton that calcualtes the volume of Cuboid
+// V= l*b*h
+
+const volume = (length=0 , breadth=0, height=0) => length*breadth*height;
+
+console.log(volume(2, 3, 4))
+
+// Write a js closure funciton that mimics the bank account opening and deposit
+
+const bank = (initialAmout= 0) => {
+    let count = initialAmout;
+    return  () => count;
+}
+
+const acHolder1 = bank(20000);
+const acHolder2 = bank(1000);
+
+console.log(acHolder1());
+console.log(acHolder2());
+
+
+// Write a callback Function to calculate the VAT of the product 13% of item cost
+
+const calcTax = (qty, costPrice) => 0.13* +qty* +costPrice;
+const cart = ({item, quantity= 1, tax}) => {
+return tax (quantity, item);
+};
+
+const taxAmt = cart ({ item:100, tax: calcTax});
+console.log(taxAmt);
+
+
+// Pure Function result doesn't changes for the same Input
+// Utilities Fuction
+// Proper Case Function Sadip Bhattarai
